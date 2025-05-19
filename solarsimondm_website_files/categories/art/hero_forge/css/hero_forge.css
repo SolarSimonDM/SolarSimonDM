@@ -1,0 +1,11 @@
+.solartextstyle_medieval {
+    font-family: "MedievalSharp_Regular";
+}
+
+.solartextstyle_medieval .solartext {
+    font-size: 20px;
+}
+
+.solartextstyle_medieval figcaption {
+    font-size: 18px;
+}

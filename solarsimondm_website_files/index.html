@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicons/favicon_DiSH.png">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/solarstyles.css">
+    <link rel="stylesheet" href="css/solarhome.css">
+    <title>SolarSimonDM - Home</title>
+  </head>
+  <body class="solarloader">
+    <div id="solarloader">
+      <button id="ENTER_SOLAR" onclick="enter_SOLAR()">ENTER S.O.L.A.R.</button>
+      <div class="solarterminal" id="solarterminal" style="display: none;">
+        <div class="solarterminal_header">
+          <div>S.O.L.A.R. Terminal 01</div>
+        </div>
+        <div class="solarterminal_content solartypewriter_effect">
+          <div>-Retrieving S.O.L.A.R. databanks...</div>
+          <div>-Extracting Plotonium reservoirs...</div>
+          <div>-Cross-referencing identification codex...</div>
+          <div>-Reporting to Infinity for potential anomalies...</div>
+          <div>-Verifying you are not a Cy.M.A.N. class Biobot...</div>
+          <div>-Running C.Q. Ritron protocols...</div>
+          <div>-Generating holo-terminal for data broadcast...</div>
+          <div>-Connecting to Krogon IX Headquarters...</div>
+          <div>-Making sure Duperman's Metal Bag is riveted...</div>
+          <div>-Access granted. Welcome, S.O.L.A.R. #<span id="solarvisitor_random_integer"></span>.</div>
+          <div><button id="solarterminal_button_enter" onclick="solarterminal_button_enter()">Enter</button></div>
+        </div>
+        <script>
+          const solarvisitor_random_integer = Math.floor(Math.random() * 10000) + 1;
+          document.getElementById("solarvisitor_random_integer").textContent = solarvisitor_random_integer;
+        </script>
+      </div>
+      <!-- End of solarloader -->        
+    </div>
+    <div id="solarhome">
+      <nav class="solarnav">
+        <div class="solarnav_content">
+          <div class="solarlink_home">
+            <a href="index.html">home</a>
+          </div>
+          <a href="categories/music/groovybox/groovybox.html">groovybox</a>
+          <a href="categories/art/hero_forge/hero_forge.html">hero_forge</a>
+          <a href="categories/art/the_scarr/the_scarr.html">the_scarr</a>
+        </div>
+      </nav>
+      <!-- End of solarhome-->            
+    </div>
+    <script src="js/solarloader.js"></script>
+    <script src="js/solartypewriter.js"></script>
+    <script src="js/solarterminal.js"></script>
+  </body>
+</html>

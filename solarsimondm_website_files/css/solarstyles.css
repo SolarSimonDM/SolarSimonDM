@@ -1,0 +1,242 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+body.solarbody_default {
+    background-color: #171f2b;
+}
+
+.solardate {
+    background-color: green;
+    color: yellow;
+    display: inline-block;
+    font-size: 12px;
+    left: 100%;    
+    position: relative;
+    transform: translateX(-100%);     
+}
+
+.solardate_sort_button {
+  border-radius: 5px;    
+  background-color: #174543;
+  color: white;
+  cursor: pointer;  
+  font-family: "Roboto";  
+  font-size: 16px;  
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.solardate_sort_button:hover {
+  background-color: #1e5a57;
+}
+
+.solarfooter {
+    background-color: black;
+    bottom: 0;
+    display: none;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    position: sticky;
+    width: 100%;
+}
+
+.solarfooter.show {
+  display: block;
+}
+
+.solarfooter .solarfooter_content {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1280px;
+}
+
+.solarfooter .solarfooter_content a {
+    color: orange;
+    font-family: "Roboto";
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.solarnav {
+  background-color: black;
+  height: 50px;  
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.solarnav_content {
+  align-items: center;  
+  display: flex;
+  flex-wrap: nowrap;  
+  gap: 5px; 
+  height: inherit;  
+  justify-content: flex-start;     
+  margin: 0 auto;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 10px;
+  white-space: nowrap;
+  width: 1280px; 
+}
+
+.solarnav_content a {
+  color: white;
+  font-family: "Roboto";
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.solarnav_content a:hover {
+  text-decoration: underline;
+}
+
+.solarnav_content a.solarlink_active {
+    color: red;
+}
+
+.solarnav_content .solarlink_home a {
+    color: orange;
+    margin-right: 10px;
+}
+
+.solarnav_content .solarlink_path a::before {
+    content: " < ";
+}
+
+.solarparagraph_center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.solarparagraph_right {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.solarparagraph_text_align_center {
+    text-align: center;
+}
+
+.solarparagraph_text_align_right {
+    text-align: right;
+}
+
+.solarsection {
+    margin-bottom: 50px;
+    padding: 10px;
+}
+
+.solarsection figcaption {
+    color: white;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+.solarsection figure {
+  margin: 0;
+  padding: 0;
+}
+
+.solarsection img {
+    border-radius: 10px;
+    display: block;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.solartable {
+    display: grid;
+}
+
+.solartable.solarcolumns_center {
+    justify-content: center;
+}
+
+.solartable.solarcolumns_left {
+    justify-self: start;
+}
+
+.solartable.solarcolumns_right {
+    justify-self: end;
+}
+
+.solartable.solarcolumns_0 {
+    grid-template-columns: 1fr;
+}
+
+.solartable.solarcolumns_1 {
+    grid-template-columns: 0.5fr;
+}
+
+.solartable.solarcolumns_2 {
+    grid-template-columns: 1fr 1fr;
+}
+
+.solartable.solarcolumns_3 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media only screen and (max-width: 768px) {
+    .solartable.solarcolumns_1,
+    .solartable.solarcolumns_2,
+    .solartable.solarcolumns_3 {
+       grid-template-columns: 1fr; 
+    }
+}
+
+.solartable_item {
+    margin: 5px;
+}
+
+.solartext {
+    color: white;
+    font-size: 16px;
+}
+
+.solartitle {
+    margin: 0;
+}
+
+h1.solartitle {
+    border-bottom: 3px solid white; 
+    border-radius: 25px;   
+    color: white;
+    font-size: 30px;
+    margin-bottom: 20px;
+    margin-top: 5px;        
+    text-align: center;
+}
+
+h2.solartitle {
+    color: cyan;
+    font-size: 27px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h3.solartitle {
+    color: orange;
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+
+.solarwrapper {
+    background-color: #0D1117;
+    font-family: "Roboto";
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 10px;
+}
+
+.solarwrapper a {
+    color: lightblue;
+}

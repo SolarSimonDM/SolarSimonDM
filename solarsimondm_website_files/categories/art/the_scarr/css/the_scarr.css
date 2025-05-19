@@ -1,0 +1,57 @@
+.scarr_avatar_grid_archie {
+    background: linear-gradient(to right, #B6959A, #EAB08D);
+    border-radius: 10px;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+@media only screen and (max-width: 768px) {
+    .scarr_avatar_grid_archie{
+       grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.scarr_avatar_grid_rob {
+    background: linear-gradient(to right, #23233C, #C384D0);
+    border-radius: 10px;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+@media only screen and (max-width: 768px) {
+    .scarr_avatar_grid_rob{
+       grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.scarr_avatar_grid_richie {
+    background: linear-gradient(to right, #112245, #9AACF3);
+    border-radius: 10px;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+@media only screen and (max-width: 768px) {
+    .scarr_avatar_grid_richie{
+       grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+#Oakwood_Ball {
+    background: linear-gradient(to right, #4A30BE, #3E1079);
+    border: 10px solid white;
+    border-radius: 10px;
+}
+
+#Oakwood_Ball h3 {
+    font-size: 40px;
+    text-align: center;
+}
+
+#Oakwood_Ball h3,
+#Oakwood_Ball p {
+    color: #E39AD5;
+    font-family: "Courgette";
+}
+
+#Oakwood_Ball p {
+    font-size: 25px;
+    max-width: 800px;
+}
