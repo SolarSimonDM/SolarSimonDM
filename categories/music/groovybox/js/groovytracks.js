@@ -1,4 +1,4 @@
-const groovytracks = [
+const groovytracks_array = [
     { file: "../../../media/audio/solartracks/A_Ride_in_Roadway_Street.mp3", name: "A Ride in Roadway Street", duration: "2:28" },
     { file: "../../../media/audio/solartracks/Airlectricity.mp3", name: "Airlectricity", duration: "1:01" },
     { file: "../../../media/audio/solartracks/Cybermesh.mp3", name: "Cybermesh", duration: "1:00" },
