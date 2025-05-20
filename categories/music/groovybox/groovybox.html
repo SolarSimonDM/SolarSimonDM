@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/groovybox.css">
     <title>SolarSimonDM - Groovybox</title>
   </head>
-  <body>
+  <body class="solarbody_default">
     <nav class="solarnav">
       <div class="solarnav_content">
         <div class="solarlink_home">
@@ -22,9 +22,9 @@
         </div>
       </div>
     </nav>
-    <div class="solarwrapper">
-      <h1 class="solartitle">Groovybox</h1>
-      <div id="groovybox_wrapper">
+    <div id="groovybox_wrapper">
+      <div id="groovybox_main">
+        <h1 class="solartitle">GROOVYBOX</h1>
         <img id="groovytrack_image" src="" alt="">
         <audio id="groovybox_player">
           <source id="groovytrack" src="">
@@ -32,13 +32,13 @@
         <div id="groovybox_controls">
           <div id="groovybox_button_row">
             <button id="previous_groovytrack">
-            <img id="previous_track_icon" src="images/strawberry_button_flipped.png" alt="Previous track.">
+            <img id="groovybox_previous_track_icon" src="images/strawberry_button_flipped.png" alt="Previous track.">
             </button>
             <button id="groovybox_toggle_play">
             <img id="groovybox_play_pause_icon" src="images/icon_play.png" alt="Play.">
             </button>
             <button id="next_groovytrack">
-            <img id="next_track_icon" src="images/strawberry_button.png" alt="Next track.">
+            <img id="groovybox_next_track_icon" src="images/strawberry_button.png" alt="Next track.">
             </button>
           </div>
           <div id="groovytrack_progress_row">
@@ -46,11 +46,14 @@
             <span id="groovytrack_current_time">0:00</span> / <span id="groovytrack_duration_time">0:00</span>
           </div>
         </div>
-        <div id="groovybox_total_runtime"></div>
-        <div id="groovytrack_list"></div>
-        <!-- End of groovybox_wrapper -->
+        <div id="groovytracks_info">
+          <div id="groovybox_total_number_of_tracks"></div>
+          <div id="groovybox_total_runtime"></div>
+        </div>
+        <!-- End of groovybox_main -->
       </div>
-      <!-- End of solarwrapper -->
+      <div id="groovytrack_list"></div>
+      <!-- End of groovybox_wrapper -->
     </div>
     <script src="js/groovytracks.js"></script>
     <script src="js/groovybox.js"></script>

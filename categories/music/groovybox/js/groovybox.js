@@ -11,6 +11,7 @@ const groovybox_elements = {
   groovytrack_duration_time: document.getElementById("groovytrack_duration_time"),
   groovytrack_toggle_play: document.getElementById("groovybox_toggle_play"),
   groovybox_play_pause_icon: document.getElementById("groovybox_play_pause_icon"),
+  groovybox_total_number_of_tracks: document.getElementById("groovybox_total_number_of_tracks"),
   groovybox_total_runtime: document.getElementById("groovybox_total_runtime")
 };
 
@@ -21,22 +22,20 @@ function seconds_to_minutes(time){
 
 // get total duration of all tracks from the property "duration" of the groovytracks_array
 function get_total_runtime() {
-  let totalMinutes = 0;
-  let totalSeconds = 0;
+  let total_seconds = 0;
 
-  // sum all minutes and all seconds
   for (const track of groovytracks_array) {
     const [min, sec] = track.duration.split(":").map(Number);
-    totalMinutes += min;
-    totalSeconds += sec;
+    total_seconds += min * 60 + sec;
   }
 
-  // add the seconds to the minutes, and add remainder seconds after the ":"
-  totalMinutes += Math.floor(totalSeconds / 60);
-  totalSeconds = totalSeconds % 60;
+  const hours = Math.floor(total_seconds / 3600);
+  total_seconds %= 3600;
+  const minutes = Math.floor(total_seconds / 60);
+  const seconds = total_seconds % 60;
 
-  return totalMinutes + ':' + ('0' + totalSeconds).slice(-2);
-};
+  return `${hours}h ${minutes}m ${('0' + seconds).slice(-2)}s`;
+}
 
 // show tracks in ul, if press on li load_groovytrack, and autoscroll for current_li
 function update_groovytrack_list() {
@@ -125,7 +124,13 @@ groovybox_elements.groovytrack_progress_bar.oninput = () => {
   groovybox_elements.groovybox_player.currentTime = (groovybox_elements.groovytrack_progress_bar.value / 100) * groovybox_elements.groovybox_player.duration;
 };
 
+function show_groovybox_info () {
+// show total number of tracks
+groovybox_elements.groovybox_total_number_of_tracks.textContent = `${groovytracks_array.length} tracks`;
 // show the total duration of tracks you got from the get_total_runtime function
-groovybox_elements.groovybox_total_runtime.textContent = `Total runtime: ${get_total_runtime()}`;
+groovybox_elements.groovybox_total_runtime.textContent = `${get_total_runtime()}`;
+};
+
+show_groovybox_info();
 
 load_groovytrack(current_groovytrack_index);
