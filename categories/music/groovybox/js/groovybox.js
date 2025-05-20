@@ -59,13 +59,18 @@ function load_groovytrack(index) {
   current_groovytrack_index = index;
   const groovytrack = groovytracks_array[index];
 
-  groovybox_elements.groovybox_player.src = groovytrack.file;
+  groovybox_elements.groovybox_player.src = "../../../media/audio/solartracks/" + groovytrack.file;
   groovybox_elements.groovybox_player.load();
   groovybox_elements.groovybox_player.play();
 
   groovybox_elements.groovytrack_image.src = groovytrack.image || "images/squirrel_GIF.gif";
   groovybox_elements.groovytrack_image.alt = "Thumbnail.";
   groovybox_elements.groovytrack_image.style.display = "block";
+
+  // update url with current track file
+  const url = new URL(window.location);
+  url.searchParams.set("solartrack_playing", groovytrack.file);
+  history.replaceState(null, "", url);
 
   update_groovytrack_list();
 }
@@ -132,5 +137,14 @@ groovybox_elements.groovybox_total_runtime.textContent = `${get_total_runtime()}
 };
 
 show_groovybox_info();
+
+// load track from url on page load
+const urlParams = new URLSearchParams(window.location.search);
+const file_from_url = urlParams.get("solartrack_playing");
+const index_from_url = groovytracks_array.findIndex(t => t.file === file_from_url);
+
+if (index_from_url !== -1) {
+  current_groovytrack_index = index_from_url;
+}
 
 load_groovytrack(current_groovytrack_index);

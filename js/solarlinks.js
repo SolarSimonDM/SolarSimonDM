@@ -12,8 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
       solarsection_id = solartitle_text
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^a-zA-Z0-9 ]/g, "")
+        .replace(/[^a-zA-Z0-9 ]/g, "_")
         .replace(/\s+/g, "_")
+        .replace(/_+/g, "_")
         .replace(/^_+|_+$/g, "");
 
       solarsection.id = solarsection_id;
