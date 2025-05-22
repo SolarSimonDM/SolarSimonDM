@@ -5,19 +5,19 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .scarr_avatar_grid_archie{
+    .scarr_avatar_grid_archie {
        grid-template-columns: repeat(4, 1fr);
     }
 }
 
-.scarr_avatar_grid_rob {
-    background: linear-gradient(to right, #23233C, #C384D0);
+.scarr_avatar_grid_tom {
+    background: linear-gradient(#200558 0%, #D19D82 55%, #2E1A86 100%);
     border-radius: 10px;
     grid-template-columns: repeat(8, 1fr);
 }
 
 @media only screen and (max-width: 768px) {
-    .scarr_avatar_grid_rob{
+    .scarr_avatar_grid_tom {
        grid-template-columns: repeat(4, 1fr);
     }
 }
@@ -29,15 +29,35 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .scarr_avatar_grid_richie{
+    .scarr_avatar_grid_richie {
        grid-template-columns: repeat(3, 1fr);
     }
+}
+
+.scarr_avatar_grid_rob {
+    background: linear-gradient(to right, #23233C, #C384D0);
+    border-radius: 10px;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+@media only screen and (max-width: 768px) {
+    .scarr_avatar_grid_rob {
+       grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.scarr_grid_tom_grooves_conductor {
+    grid-template-columns: repeat(3, 1fr);
 }
 
 #Oakwood_Ball {
     background: linear-gradient(to right, #4A30BE, #3E1079);
     border: 10px solid white;
     border-radius: 10px;
+}
+
+#Oakwood_Ball img {
+    border-radius: 0;
 }
 
 #Oakwood_Ball h3 {
@@ -54,4 +74,34 @@
 #Oakwood_Ball p {
     font-size: 25px;
     max-width: 800px;
+}
+
+#Pink_Elephant_World img {
+    border-radius: 0;
+}
+
+#Pink_Elephant_World h3 {
+    font-size: 40px;
+    text-align: center;
+}
+
+#Pink_Elephant_World h3,
+#Pink_Elephant_World p {
+    color: #E39AD5;
+    font-family: "Courgette";    
+}
+
+#I_am_Clarice p {
+    border-bottom: 2px solid #E39AD5; 
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 50px;
+    font-size: 35px;
+    max-width: 800px;
+    text-shadow: 1px 1px 2px pink;         
+}
+
+#I_hereby_welcome_you_to_the_Pink_Elephant_World p {
+    font-size: 40px;
+    max-width: 800px;
+    text-shadow: 2px 2px 4px pink; 
 }

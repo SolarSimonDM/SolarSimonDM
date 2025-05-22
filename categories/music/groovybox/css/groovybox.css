@@ -36,7 +36,7 @@
 }
 
 #groovybox_main {
-  background: linear-gradient(180deg, rgba(32,5,88,1) 0%, rgba(209,157,130,1) 54%, rgba(46,26,134,1) 99%);
+  background: linear-gradient(#200558 0%, #D19D82 55%, #2E1A86 100%);
   padding: 10px;
 }
 
@@ -98,7 +98,7 @@
 }
 
 #groovytrack_list li.current {
-  background: linear-gradient(180deg, rgba(32,5,88,1) 0%, rgba(209,157,130,1) 54%, rgba(46,26,134,1) 99%);
+  background: linear-gradient(#200558 0%, #D19D82 55%, #2E1A86 100%);
   font-weight: bold;
   color: black;
 }

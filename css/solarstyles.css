@@ -141,16 +141,25 @@ body.solarbody_default {
 }
 
 .solarsection figure {
-  margin: 0;
+  margin: 10px auto;
   padding: 0;
 }
 
-.solarsection img {
+.solarsection img,
+.solarsection video {
     border-radius: 10px;
     display: block;
     height: auto;
+    margin: 0 auto;    
     max-width: 100%;
-    margin: 0 auto;
+}
+
+.solarsection img.solarimage_dim_200 {
+    width: 200px;
+}
+
+.solarsection video.solarvideo_dim_1000 {
+    width: 1000px;
 }
 
 .solartable {
