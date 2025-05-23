@@ -10,6 +10,18 @@ body.solarbody_default {
     background-color: #171f2b;
 }
 
+img, video {
+    border-radius: 10px;
+    display: block;
+    height: auto;
+    margin: 0 auto;    
+    max-width: 100%;
+}
+
+.no_border_radius img {
+    border-radius: 0;
+}
+
 .solardate {
     background-color: green;
     color: yellow;
@@ -129,8 +141,9 @@ body.solarbody_default {
 }
 
 .solarsection {
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     padding: 10px;
+    scroll-margin-top: 70px; /* offset anchor target so that it's not hidden behind navbar */
 }
 
 .solarsection figcaption {
@@ -145,17 +158,12 @@ body.solarbody_default {
   padding: 0;
 }
 
-.solarsection img,
-.solarsection video {
-    border-radius: 10px;
-    display: block;
-    height: auto;
-    margin: 0 auto;    
-    max-width: 100%;
-}
-
 .solarsection img.solarimage_dim_200 {
     width: 200px;
+}
+
+.solarsection img.solarimage_dim_500 {
+    width: 500px;
 }
 
 .solarsection video.solarvideo_dim_1000 {
@@ -206,6 +214,35 @@ body.solarbody_default {
     margin: 5px;
 }
 
+.solartable_of_contents {
+    background: linear-gradient(to right, #112245, #2013B4);
+    border-radius: 10px;    
+    color: white;
+    font-family: "Roboto";
+    font-size: 16px;
+    margin: 0 auto;
+    max-width: 500px;  
+    padding: 10px;    
+}
+
+.solartable_of_contents a {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.solartable_of_contents > ul > li > a {
+  color: orange;
+  font-size: 20px;
+}
+
+.solartable_of_contents > ul > li > ul > li > a {
+    color: hotpink;
+}
+
+.solartable_of_contents > ul > li > ul > li > ul > li > a {
+    color: cyan;
+}
+
 .solartext {
     color: white;
     font-size: 16px;
@@ -247,5 +284,5 @@ h3.solartitle {
 }
 
 .solarwrapper a {
-    color: lightblue;
+    color: cyan;
 }
