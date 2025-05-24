@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let current_groovytrack_index = 0;
 
-  // get folder from wrapper's data attribute only (no url params)
+  // get data attributes
   const groovybox_master_wrapper = document.querySelector(".groovybox_master_wrapper");
   const baseAudioPath = groovybox_master_wrapper?.dataset?.audioPath || "";
   const baseImagePath = groovybox_master_wrapper?.dataset?.imagePath || "";
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // folder selector element
   const folderSelector = document.querySelector(".groovybox_folder_selector");
   if (folderSelector) {
-    // set initial value from data attribute only
+    // set initial value from data attribute
     folderSelector.value = effective_folder;
 
     // change folder without changing url or reloading page
@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // make audio element unfocusable to avoid scrolling on play/pause
   groovybox_elements.groovybox_player.setAttribute("tabindex", "-1");
 
-  // always load first track (no url param used)
+  // always load first track
   load_groovytrack(current_groovytrack_index);
 
   window.scrollTo(0, 0);
