@@ -100,3 +100,49 @@
     max-width: 800px;
     text-shadow: 2px 2px 4px pink; 
 }
+
+/* T.S.T.V. STYLES */
+
+#TSTV_Character_Abilities > div {
+    margin: 0;
+}
+
+#TSTV_Character_Abilities ul {
+    line-height: 2;
+}
+
+#TSTV_Character_Abilities li {
+    margin-bottom: 20px;
+}
+
+/* T.S.T.V. CHARACTER BOXES */
+
+.scarrbox_Archie {
+    background-color: #401A1A;
+    color: #FFAA7F;
+}
+
+.scarrbox_Duperman {
+    background-color: #172642;
+    color: #FFFFFF;
+}
+
+.scarrbox_Flargon {
+    background-color: #2A0100;
+    color: #FF6687;
+}
+
+.scarrbox_Richie {
+    background-color: #1A1F40;
+    color: #FFDC95;
+}
+
+.scarrbox_Rob {
+    background-color: #34005F;
+    color: #FFB4FC;
+}
+
+.scarrbox_Timmy {
+    background-color: #243116;
+    color: #56DB82;
+}

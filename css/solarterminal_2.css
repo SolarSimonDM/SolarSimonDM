@@ -25,12 +25,7 @@
 .solarterminal_content pre {
   line-height: 1;
   white-space: pre-wrap;
-}
-
-.solarterminal_content pre,
-.solarterminal_content code {
-  margin: 0;
-  padding: 0;
+  overflow-wrap: break-word;
 }
 
 .solarterminal_header {
@@ -39,15 +34,13 @@
   border-top-right-radius: 20px;
   color: white;
   line-height: 45px;
+  overflow-wrap: break-word;
   text-align: center;
 }
 
 .solarterminal .solarterminal_content {
   background-color: black;
   color: #63DE00;
-  height: 100%;
-  max-height: 400px;  
-  overflow: auto;
   padding: 20px;
   line-height: 45px;
 }

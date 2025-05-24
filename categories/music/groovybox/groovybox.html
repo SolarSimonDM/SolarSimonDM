@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../../../favicons/favicon_DiSH.png">
     <link rel="stylesheet" href="../../../css/solarstyles.css">
@@ -22,39 +22,9 @@
         </div>
       </div>
     </nav>
-    <div id="groovybox_wrapper">
-      <div id="groovybox_main">
-        <h1 class="solartitle">GROOVYBOX</h1>
-        <img id="groovytrack_image" src="" alt="">
-        <audio id="groovybox_player">
-          <source id="groovytrack" src="">
-        </audio>
-        <div id="groovybox_controls">
-          <div id="groovybox_button_row">
-            <button id="previous_groovytrack">
-            <img id="groovybox_previous_track_icon" src="images/strawberry_button_flipped.png" alt="Previous track.">
-            </button>
-            <button id="groovybox_toggle_play">
-            <img id="groovybox_play_pause_icon" src="images/icon_play.png" alt="Play.">
-            </button>
-            <button id="next_groovytrack">
-            <img id="groovybox_next_track_icon" src="images/strawberry_button.png" alt="Next track.">
-            </button>
-          </div>
-          <div id="groovytrack_progress_row">
-            <input type="range" id="groovytrack_progress_bar" value="0" min="0" max="100" step="1">
-            <span id="groovytrack_current_time">0:00</span> / <span id="groovytrack_duration_time">0:00</span>
-          </div>
-        </div>
-        <div id="groovytracks_info">
-          <div id="groovybox_total_number_of_tracks"></div>
-          <div id="groovybox_total_runtime"></div>
-        </div>
-        <!-- End of groovybox_main -->
-      </div>
-      <div id="groovytrack_list"></div>
-      <!-- End of groovybox_wrapper -->
-    </div>
+
+    <div class="groovybox_master_wrapper" data-audio-path="../../../media/audio/solartracks/" data-image-path="../../../media/images/groovybox/" data-groovytrack-folder="general"></div>
+
     <script src="js/groovytracks.js"></script>
     <script src="js/groovybox.js"></script>
   </body>

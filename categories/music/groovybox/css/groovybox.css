@@ -1,60 +1,48 @@
-#groovybox_button_row {
-  animation: groovybox_button_row_animation 1s ease-out forwards;  
+.groovybox_button_row { 
   display: flex;
   justify-content: center;
   gap: 20px;
   margin-bottom: 10px;
 }
 
-@keyframes groovybox_button_row_animation {
-  from {
-    opacity: 0;
-    transform: rotate(45deg);
-  }
-  to {
-    opacity: 1;
-    transform: rotate(0deg);
-  }
-}
-
-#groovybox_controls {
+.groovybox_controls {
   border-radius: 10px;
   color: white;
 }
 
-#groovybox_controls button {
+.groovybox_controls button {
   background: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
 }
 
-#groovybox_controls button img {
+.groovybox_controls button img {
   width: 70px;
   height: auto;
   display: block;
 }
 
-#groovybox_main {
+.groovybox_main {
   background: linear-gradient(#200558 0%, #D19D82 55%, #2E1A86 100%);
   padding: 10px;
 }
 
-#groovybox_wrapper {
+.groovybox_wrapper {
   border: 5px solid white;
   display: flex;
   flex-direction: column;
-  height: 95vh; 
+  max-height: 95vh; 
 }
 
-#groovytrack_list {
+.groovytrack_list {
   flex-grow: 1; 
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
-#groovytrack_list ul {
+.groovytrack_list ul {
   color: white;
   flex-grow: 1;       
   list-style-type: none;
@@ -64,50 +52,50 @@
   text-align: center;
 }
 
-#groovytrack_ul::-webkit-scrollbar {
+.groovytrack_ul::-webkit-scrollbar {
   width: 20px;
 }
 
-#groovytrack_ul::-webkit-scrollbar-track {
+.groovytrack_ul::-webkit-scrollbar-track {
   background: #5e6be4;
   border: 2px solid #222;
 }
 
-#groovytrack_ul::-webkit-scrollbar-thumb {
+.groovytrack_ul::-webkit-scrollbar-thumb {
   background-color: rgb(196, 104, 28);
   border: 2px solid #222;
 }
 
-#groovytrack_ul::-webkit-scrollbar-thumb:hover {
+.groovytrack_ul::-webkit-scrollbar-thumb:hover {
     background-color: white;
 }
 
-#groovytrack_list li {
+.groovytrack_list li {
   cursor: pointer;
   font-family: "Ubuntu_Mono_Regular";
   margin: 0;
   padding: 10px;
 }
 
-#groovytrack_list li:nth-of-type(even) {
+.groovytrack_list li:nth-of-type(even) {
   background-color: #192942;
 }
 
-#groovytrack_list li:nth-of-type(odd) {
+.groovytrack_list li:nth-of-type(odd) {
   background-color: #2d4d80;
 }
 
-#groovytrack_list li.current {
+.groovytrack_list li.current {
   background: linear-gradient(#200558 0%, #D19D82 55%, #2E1A86 100%);
   font-weight: bold;
   color: black;
 }
 
-#groovytrack_list li:hover {
+.groovytrack_list li:hover {
   text-decoration: underline;
 }
 
-#groovytrack_image {
+.groovytrack_image {
   background-color: white;
   border: 1px solid white;    
   border-radius: 50%;
@@ -120,7 +108,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-    #groovytrack_image {
+    .groovytrack_image {
        max-width: 100px; 
     }
 }
@@ -130,23 +118,23 @@
   to { transform: rotate(360deg); }
 }
 
-#groovytrack_image.spin {
+.groovytrack_image.spin {
   animation: spin 10s linear infinite;
   transform-origin: center;
 }
 
-#groovytrack_image.paused {
+.groovytrack_image.paused {
   animation-play-state: paused;
 }
 
-#groovytrack_progress_bar {
+.groovytrack_progress_bar {
   flex-grow: 1;
   min-width: 0;
   height: 20px;
   cursor: pointer;
 }
 
-#groovytrack_progress_row {
+.groovytrack_progress_row {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -154,7 +142,7 @@
   font-family: "Roboto";
 }
 
-#groovytracks_info {
+.groovytracks_info {
     color: gray;
     display: flex;
     font-family: "Ubuntu_Mono_Regular";
@@ -162,27 +150,19 @@
     gap: 10px;    
 }
 
-#groovytracks_info div:not(:last-child)::after {
+.groovytracks_info div:not(:last-child)::after {
   content: " | "
 }
 
-@keyframes solartitle_animation {
-  from {
-     border-color: white;
-     letter-spacing: 50px;
-  }
-  to {
-     border-color: orange;
-     letter-spacing: 20px;
-     text-shadow: #fc0 1px 0 10px;
-  }
-}
-
-h1.solartitle {
-  animation: solartitle_animation 1s ease-out forwards;
+.groovybox_title {
+  border-bottom: 3px solid orange;
+  border-radius: 25px;   
+  color: white;
   font-family: "Ubuntu_Mono_Regular";
-}
-
-.solarwrapper {
-    background-color: transparent;
+  font-size: 30px;
+  letter-spacing: 10px;
+  margin-bottom: 20px;
+  margin-top: 5px;        
+  text-align: center;
+  text-shadow: #fc0 1px 0 10px;  
 }

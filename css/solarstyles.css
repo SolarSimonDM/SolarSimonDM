@@ -82,6 +82,7 @@ img.no_border_radius,
   position: sticky;
   top: 0;
   width: 100%;
+  z-index: 1000;
 }
 
 .solarnav_content {
@@ -251,6 +252,10 @@ img.no_border_radius,
 
 .solartitle {
     margin: 0;
+}
+
+.solartitle.inherit_color {
+    color: inherit;
 }
 
 h1.solartitle {
