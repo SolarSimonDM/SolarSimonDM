@@ -1,0 +1,53 @@
+.solarcode_color_tag {
+  color: #569CD6;
+}
+
+.solarcode_color_attr {
+  color: #9CDCFE;
+}
+
+.solarcode_color_value {
+  color: #CE9178;
+}
+
+.solarcode_color_text {
+  color: #DCDCAA;
+}
+
+.solarterminal {
+    font-family: "Ubuntu_Mono_Regular";
+    font-size: 16px; 
+    margin: 0 auto;
+    max-width: 100%;
+    width: 800px;
+}
+
+.solarterminal_content pre {
+  line-height: 1;
+  white-space: pre-wrap;
+}
+
+.solarterminal_content pre,
+.solarterminal_content code {
+  margin: 0;
+  padding: 0;
+}
+
+.solarterminal_header {
+  background-color: #4E4C45;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: white;
+  line-height: 45px;
+  text-align: center;
+}
+
+.solarterminal .solarterminal_content {
+  background-color: black;
+  color: #63DE00;
+  height: 100%;
+  max-height: 400px;  
+  overflow: auto;
+  padding: 20px;
+  line-height: 45px;
+}

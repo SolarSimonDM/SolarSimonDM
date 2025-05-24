@@ -1,0 +1,29 @@
+.solarterminal {
+    font-family: "Ubuntu_Mono_Regular"; 
+    margin: 0 auto;
+    max-width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+}
+
+.solarterminal_header {
+  background-color: #4E4C45;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: white;
+  line-height: 45px;
+  text-align: center;
+}
+
+.solarterminal .solarterminal_content {
+  background-color: black;
+  color: #63DE00;
+  height: 400px;
+  max-height: 100%;       
+  overflow: auto;
+  padding: 20px;
+  line-height: 45px;
+}

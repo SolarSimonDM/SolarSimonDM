@@ -14,6 +14,7 @@ if (solarvisitor_time_of_seeing_solarloader &&
     // Don't store timestamp yet — only show solarloader
     document.getElementById("solarhome").style.display = "none";
     document.body.className = "solarloader";
+    document.getElementById("ENTER_SOLAR").style.display = "block";    
 }
 
 // Called when user actually clicks Enter button from terminal
