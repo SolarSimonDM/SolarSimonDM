@@ -232,17 +232,15 @@ function create_groovybox_HTML(wrapper) {
   if (!wrapper) return;
 
   const show_folders = wrapper.dataset.showFolders !== "false";
+  const base_image_path = wrapper.dataset.imagePath || "";
 
-  // show folder selector unless data-show-folders equals "false"
-  const folder_selector_html = show_folders ?
-    `
-      <select class="groovybox_folder_selector">
-        <option value="general">general</option>
-        <option value="TSTV">T.S.T.V. OST</option>
-        <option value="SCARR">S.C.A.R.R.</option>
-      </select>
-    ` :
-    "";
+  const folder_selector_html = show_folders ? `
+    <select class="groovybox_folder_selector">
+      <option value="general">general</option>
+      <option value="TSTV">T.S.T.V. OST</option>
+      <option value="SCARR">S.C.A.R.R.</option>
+    </select>
+  ` : "";
 
   const groovybox_wrapper = document.createElement("div");
   groovybox_wrapper.className = "groovybox_wrapper";
@@ -260,13 +258,13 @@ function create_groovybox_HTML(wrapper) {
       <div class="groovybox_controls">
         <div class="groovybox_button_row">
           <button class="previous_groovytrack" type="button">
-            <img class="groovybox_previous_track_icon" src="../../../media/images/groovybox/strawberry_button_flipped.png" alt="Previous track.">
+            <img class="groovybox_previous_track_icon" src="${base_image_path}strawberry_button_flipped.png" alt="Previous track.">
           </button>
           <button class="groovybox_toggle_play" type="button">
-            <img class="groovybox_play_pause_icon" src="../../../media/images/groovybox/icon_play.png" alt="Play.">
+            <img class="groovybox_play_pause_icon" src="${base_image_path}icon_play.png" alt="Play.">
           </button>
           <button class="next_groovytrack" type="button">
-            <img class="groovybox_next_track_icon" src="../../../media/images/groovybox/strawberry_button.png" alt="Next track.">
+            <img class="groovybox_next_track_icon" src="${base_image_path}strawberry_button.png" alt="Next track.">
           </button>
         </div>
         <div class="groovytrack_progress_row">
