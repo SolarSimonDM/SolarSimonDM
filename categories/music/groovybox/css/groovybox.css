@@ -1,3 +1,7 @@
+.artist_name {
+  color: gray;
+}
+
 .groovybox_button_row { 
   display: flex;
   justify-content: center;
@@ -89,6 +93,10 @@
   background: linear-gradient(#200558 0%, #D19D82 55%, #2E1A86 100%);
   font-weight: bold;
   color: black;
+}
+
+.groovytrack_list li.current .artist_name {
+  color: white;
 }
 
 .groovytrack_list li:hover {

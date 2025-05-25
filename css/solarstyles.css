@@ -145,7 +145,7 @@ img.no_border_radius,
 .solarsection {
     margin-bottom: 10px;
     padding: 10px;
-    scroll-margin-top: 70px; /* offset anchor target so that it's not hidden behind navbar */
+    padding-top: 50px;
 }
 
 .solarsection figcaption {
