@@ -1,18 +1,15 @@
-body.solarloader {
-    background-color: black;
-}
 
 #ENTER_SOLAR {
   background-color: black;
   border: 2px solid white;
-  border-radius: 10px;  
+  border-radius: 10px;
   color: white;
   cursor: pointer;
-  font-family: "Ubuntu_Mono_Regular";    
+  font-family: "Ubuntu_Mono_Regular";
   font-size: 30px;
-  font-weight: bold;    
-  left: 50%; 
-  padding: 20px;     
+  font-weight: bold;
+  left: 50%;
+  padding: 20px;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -22,4 +19,156 @@ body.solarloader {
 #ENTER_SOLAR:hover {
   background-color: white;
   color: black;
+}
+
+#The_Credits {
+  border-top: 1px solid white;
+  margin-top: 50px;
+  color: white;
+  font-family: "Roboto";
+  font-size: 14px;
+}
+
+#The_Credits a {
+  color: white;
+}
+
+#The_Internet_Presence_wrapper {
+  display: flex;
+  font-family: "Roboto";
+  font-size: 14px;
+}
+
+body.solarloader {
+  background-color: black;
+}
+
+.solarchats {
+  background-color: #303030;
+  display: flex;
+  flex-direction: column;
+  font-family: "Ubuntu_Mono_Regular";
+  height: 500px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.solarchats > h2 {
+  background-color: #303030;
+  border-bottom: 1px solid #444;
+  color: white;
+  margin: 0;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.solarchats .solarchats_image_and_message_wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.solarchats .solarchats_message_sender {
+  color: green;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.solarchats .solarchats_message_sender_image {
+  width: 50px;
+}
+
+.solarchats .solarchats_message_text {
+  color: white;
+  font-size: 15px;
+}
+
+.solarchats .solarchats_message_text p {
+  margin-top: 5px;
+}
+
+.solarchats_content {
+  background-color: #303030;
+  flex-grow: 1;
+  padding: 10px;
+}
+
+.solarmarquee_content {
+  display: inline-block;
+  font-family: "Ubuntu_Mono_Regular";
+  font-size: 14px;
+  will-change: transform;
+  white-space: nowrap;
+}
+
+.solarmarquee_wrapper {
+  background: black;
+  color: #63DE00;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+  width: 100vw;
+}
+
+.solarhome_and_solarsidebar_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 20px;
+  margin: 0 auto;
+  max-width: 1400px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+.solarhome_wrapper {
+  background: black;
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-shrink: 0;
+  max-width: 1080px;
+  min-width: 500px;
+  overflow: visible;
+}
+
+@media only screen and (max-width: 768px) {
+  .solarhome_wrapper {
+    max-width: 100vw;
+    min-width: 100vw;  
+  }
+}
+
+.solarhome_wrapper .solarsection {
+  padding-top: 0;
+}
+
+.solarhome_wrapper .solartable {
+  grid-template-columns: max-content max-content;
+  gap: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .solarhome_wrapper .solartable.solarcolumns_2 {
+    grid-template-columns: 1fr;      
+    width: 95vw;    
+  }
+}
+
+.solarhome_wrapper h2.solartitle {
+  border-bottom: 1px solid white;
+}
+
+h1.solartitle.homepage {
+  background-color: black;
+  border-radius: 0;
+  margin-top: 0;
+}
+
+.solarsidebar {
+  flex-basis: 300px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 300px;
 }

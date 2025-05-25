@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="css/solarstyles.css">
     <link rel="stylesheet" href="css/solarhome.css">
     <link rel="stylesheet" href="css/solarterminal.css">
+    <link rel="stylesheet" href="categories/music/groovybox/css/groovybox.css">
     <title>SolarSimonDM - Home</title>
   </head>
-  <body class="solarbody_default">
+  <body class="solarbody_homepage">
     <div id="solarloader">
       <button id="ENTER_SOLAR" onclick="enter_SOLAR()" style="display: none;">ENTER S.O.L.A.R.</button>
       <div class="solarterminal" id="solarterminal" style="display: none;">
@@ -40,18 +41,102 @@
     <div id="solarhome">
       <nav class="solarnav">
         <div class="solarnav_content">
-          <div class="solarlink_home">
-            <a href="index.html">home</a>
+          <div class="solarmarquee_wrapper">
+            <div class="solarmarquee_content"></div>
           </div>
-          <a href="categories/music/groovybox/groovybox.html">groovybox</a>
-          <a href="categories/art/hero_forge/hero_forge.html">hero_forge</a>
-          <a href="categories/art/the_scarr/the_scarr.html">the_scarr</a>
         </div>
+        <script src="js/solarmarquee_content.js"></script>
+        <script src="js/solarmarquee.js"></script>
       </nav>
-      <!-- End of solarhome-->            
+      <div class="homepage_solartitle">
+        <h1 class="solartitle homepage">SolarSimonDM</h1>
+      </div>
+      <div class="solarhome_and_solarsidebar_wrapper">
+        <div class="solarhome_wrapper">
+          <div class="solarsection" id="The_Art">
+            <h2 class="solartitle">The Art</h2>
+            <div class="solartable solarcolumns_2">
+              <div class="solartable_item">
+                <div>
+                  <h3 class="solartitle"><a href="categories/art/hero_forge/hero_forge.html">Hero Forge</a></h3>
+                  <a class="fancy_solarlink" href="categories/art/hero_forge/hero_forge.html">
+                    <img loading="lazy" src="media/images/hero_forge/hero_forge_collage.png" alt="Hero Forge collage.">
+                  </a>
+                </div>
+              </div>
+              <div class="solartable_item">
+                <div>
+                  <h3 class="solartitle"><a href="categories/art/the_scarr/the_scarr.html">The S.C.A.R.R.</a></h3>
+                  <a class="fancy_solarlink" href="categories/art/the_scarr/the_scarr.html">
+                    <img loading="lazy" src="media/images/the_scarr/the_scarr_collage.png" alt="The SCARR collage.">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="solarsection" id="The_Music">
+            <h2 class="solartitle">The Music</h2>
+            <div>
+              <h3 class="solartitle"><a href="categories/music/groovybox/groovybox.html">Groovybox</a></h3>
+              <div class="groovybox_master_wrapper" data-audio-path="media/audio/solartracks/" data-image-path="media/images/groovybox/" data-show-folders="false" data-specific-groovytrack="Maniac Machinations"></div>
+            </div>
+            <script src="categories/music/groovybox/js/groovytracks.js"></script>
+            <script src="categories/music/groovybox/js/groovybox.js"></script> 
+          </div>
+          <div class="solarsection" id="The_Internet_Presence">
+            <h2 class="solartitle">The Internet Presence</h2>
+            <div id="The_Internet_Presence_wrapper">
+              <div id="The_Reddit">
+                <figure>
+                  <a href="https://www.reddit.com/user/SolarSimonDM/" target="_blank" rel="noopener noreferrer">
+                    <img src="media/images/external_site_icons/Reddit_Icon_FullColor.svg" width="50" height="50">
+                  </a>
+                  <figcaption>u/SolarSimonDM</figcaption>
+                </figure>           
+              </div>
+              <div id="The_YouTube">
+                <figure>
+                  <a href="https://www.youtube.com/@SolarSimonDM" target="_blank" rel="noopener noreferrer">
+                    <img src="media/images/external_site_icons/YouTube_favicon_144x144.png" width="50" height="50">
+                  </a>
+                  <figcaption>@SolarSimonDM</figcaption>
+                </figure>           
+              </div>
+            </div>
+            <div id="The_Credits">
+              <p>© 2025 All rights reserved.</p>
+              <p>Website made by <a href="https://www.youtube.com/@odyg" target="_blank" rel="noopener noreferrer">Od. G.</a></p>
+            </div>                      
+          </div>        
+          <!-- End of solarwrapper -->            
+        </div>
+        <div class="solarsidebar">
+          <div class="solarchats">
+            <h2>Solarchats</h2>
+            <div class="solarchats_content">
+              <div class="solarchats_message">
+                <div class="solarchats_image_and_message_wrapper">
+                  <div class="solarchats_image_and_message_wrapper_item">
+                    <div class="solarchats_message_sender_image"><img src="media/images/the_scarr/SCARR_Groovybot_Transparent.png" alt="Avatar."></div>
+                  </div>
+                  <div class="solarchats_image_and_message_wrapper_item">
+                    <div class="solarchats_message_sender">Groovybot</div>
+                    <div class="solarchats_message_text">
+                      <p>Hello? Is anyone here?</p>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End of solarhome_and_solarsidebar_wrapper-->
+      </div>
+      <!-- End of solarhome -->
     </div>
+    <script src="categories/solarchats/solarchats.js"></script>
+    <script src="categories/solarchats/solarchats_loader.js"></script>
     <script src="js/solarloader.js"></script>
-    <script src="js/solartypewriter.js"></script>
     <script src="js/solarterminal.js"></script>
   </body>
 </html>
