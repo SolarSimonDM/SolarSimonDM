@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
       groovybox_total_runtime: wrapper.querySelector(".groovybox_total_runtime"),
       previous_button: wrapper.querySelector(".previous_groovytrack"),
       next_button: wrapper.querySelector(".next_groovytrack"),
-      volume_slider: wrapper.querySelector("#groovybox_volume_slider"),
+      volume_slider: wrapper.querySelector(".groovybox_volume_slider"),
     };
 
     let current_groovytrack_index = 0;
