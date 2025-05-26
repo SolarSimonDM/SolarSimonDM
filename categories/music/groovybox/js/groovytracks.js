@@ -26,7 +26,7 @@ const groovytracks_array = [
     { file: "Zenith.mp3", name: "Zenith", duration: "2:50", groovytrack_folder: "general", artist: "SolarSimonDM" },
 
     // TSTV OST
-    { file: "TSTV/TSTV_OST_Archiebald_I_Choose You_Badger_Approaching.mp3", name: "T.S.T.V. OST - Archiebald I Choose You - Badger Approaching", duration: "0:47", groovytrack_folder: "TSTV", artist: "SolarSimonDM" },
+    { file: "TSTV/TSTV_OST_Archiebald_I_Choose_You_Badger_Approaching.mp3", name: "T.S.T.V. OST - Archiebald I Choose You - Badger Approaching", duration: "0:47", groovytrack_folder: "TSTV", artist: "SolarSimonDM" },
     { file: "TSTV/TSTV_OST_Level_1_The_Cemetery.mp3", name: "T.S.T.V. OST - Level 1 - The Cemetery", duration: "1:20", groovytrack_folder: "TSTV", artist: "SolarSimonDM" },
     { file: "TSTV/TSTV_OST_In_Grave_Danger_Cemetery_Fight.mp3", name: "T.S.T.V. OST - In Grave Danger - Cemetery Fight", duration: "1:15", groovytrack_folder: "TSTV", artist: "SolarSimonDM" },    
     { file: "TSTV/TSTV_OST_Level_2_Creaturopolis.mp3", name: "T.S.T.V. OST - Level 2 - Creaturopolis", duration: "2:03", groovytrack_folder: "TSTV", artist: ["SolarSimonDM", "Od. G."] },
