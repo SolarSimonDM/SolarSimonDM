@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="solarchats_image_and_message_wrapper">
             <div class="solarchats_image_and_message_wrapper_item">
               <div class="solarchats_message_sender_image">
-                <img src="${message.solarchats_message_sender_image}">
+                <img src="${message.solarchats_message_sender_image}" alt="Avatar.">
               </div>
             </div>
             <div class="solarchats_image_and_message_wrapper_item">
@@ -46,6 +46,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  const random_solarchat = get_random_solarchat();
-  render_solarchat(random_solarchat);
+  // Mutation Observer section
+
+  const solarhome = document.getElementById("solarhome");
+
+  if (getComputedStyle(solarhome).display !== "none") {
+    render_solarchat(get_random_solarchat());
+  } else {
+    const observer = new MutationObserver(() => {
+      if (getComputedStyle(solarhome).display !== "none") {
+        observer.disconnect();
+        render_solarchat(get_random_solarchat());
+      }
+    });
+
+    observer.observe(solarhome, { attributes: true, attributeFilter: ["style"] });
+  }
 });

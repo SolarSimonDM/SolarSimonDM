@@ -252,9 +252,7 @@ function create_groovybox_HTML(wrapper) {
       ${folder_selector_html}
 
       <img class="groovytrack_image" src="" alt="">
-      <audio class="groovybox_player" preload="metadata" tabindex="-1">
-        <source class="groovytrack" src="">
-      </audio>
+      <audio class="groovybox_player" preload="metadata" tabindex="-1"></audio>
       <div class="groovybox_controls">
         <div class="groovybox_button_row">
           <button class="previous_groovytrack" type="button">
@@ -273,7 +271,7 @@ function create_groovybox_HTML(wrapper) {
         </div>
         <div class="groovytrack_volume_row">
           <label for="groovybox_volume_slider" style="color: white; font-family: 'Roboto'; font-size: 14px;">Volume</label>
-          <input type="range" id="groovybox_volume_slider" min="0" max="1" step="0.01" value="1">
+          <input type="range" class="groovybox_volume_slider" id="groovybox_volume_slider" min="0" max="1" step="0.01" value="1">
         </div>
       </div>
       <div class="groovytracks_info">
