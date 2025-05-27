@@ -5,7 +5,6 @@ const groovytracks_array = [
     { file: "Cybermesh.mp3", name: "Cybermesh", duration: "1:00", groovytrack_folder: "general", artist: "SolarSimonDM" },
     { file: "Disco_Garden.mp3", name: "Disco Garden", duration: "1:07", groovytrack_folder: "general", artist: "SolarSimonDM" },
     { file: "Duper_Interiors.mp3", name: "Duper Interiors", duration: "1:14", groovytrack_folder: "general", artist: "SolarSimonDM" },
-    { file: "Duperhouse.mp3", name: "Duperhouse", duration: "1:16", groovytrack_folder: "general", artist: "SolarSimonDM" },
     { file: "Fansynth_Pants_Adventure.mp3", name: "Fansynth Pants Adventure", duration: "1:36", groovytrack_folder: "general", artist: "SolarSimonDM" },    
     { file: "Grooves_is_on_the_Case.mp3", name: "Grooves is on the Case", duration: "1:08", groovytrack_folder: "general", artist: "SolarSimonDM" },
     { file: "HardCORE.mp3", name: "HardCORE", duration: "1:08", groovytrack_folder: "general", artist: "SolarSimonDM" },
@@ -22,7 +21,7 @@ const groovytracks_array = [
     { file: "Rowmans_Shanty.mp3", name: "Rowman's Shanty", duration: "1:02", groovytrack_folder: "general", artist: "SolarSimonDM" }, 
     { file: "Ta_Ren_Theme_2_0.mp3", name: "Tá Ren Theme 2.0", duration: "0:50", groovytrack_folder: "general", artist: "SolarSimonDM" },
     { file: "This_Is_Not_Your_Battlefield.mp3", name: "This Is Not Your Battlefield", duration: "3:00", image: "thumb_This_Is_Not_Your_Battlefield.png", groovytrack_folder: "general", artist: "SolarSimonDM" },    
-    { file: "Town_Lost_in_Myth.mp3", name: "Town Lost in Myth", duration: "1:47", groovytrack_folder: "general", artist: "SolarSimonDM" },
+    { file: "Town_Lost_in_Myth.mp3", name: "Town Lost in Myth", duration: "3:48", groovytrack_folder: "general", artist: "SolarSimonDM" },
     { file: "Zenith.mp3", name: "Zenith", duration: "2:50", groovytrack_folder: "general", artist: "SolarSimonDM" },
 
     // TSTV OST
