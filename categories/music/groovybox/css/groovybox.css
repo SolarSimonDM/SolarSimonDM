@@ -121,20 +121,6 @@
     }
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.groovytrack_image.spin {
-  animation: spin 10s linear infinite;
-  transform-origin: center;
-}
-
-.groovytrack_image.paused {
-  animation-play-state: paused;
-}
-
 .groovytrack_progress_bar {
   flex-grow: 1;
   min-width: 0;

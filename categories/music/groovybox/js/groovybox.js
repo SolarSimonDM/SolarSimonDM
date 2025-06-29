@@ -26,6 +26,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let current_groovytrack_index = 0;
 
+    let animation_frame_id;
+
+    function rotate_image_cancel(frame_id) {
+      if (typeof frame_id === "number") {
+        cancelAnimationFrame(frame_id);
+      }
+    }
+    function rotate_image() {
+      if (groovybox_elements.groovybox_player.paused || groovybox_elements.groovybox_player.ended) return;
+
+      const current_time = groovybox_elements.groovybox_player.currentTime;
+      const rotation_deg = current_time * 45;
+      groovybox_elements.groovytrack_image.style.transform = `rotate(${rotation_deg}deg)`;
+
+      animation_frame_id = requestAnimationFrame(rotate_image);
+    }
+
     // data attributes from the HTML
     const base_audio_path = wrapper.dataset.audioPath || "";
     const base_image_path = wrapper.dataset.imagePath || "";
@@ -159,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
       load_groovytrack(new_index);
 
       if (groovybox_elements.groovybox_player.paused) {
-        groovybox_elements.groovybox_player.play().catch(() => {});
+        groovybox_elements.groovybox_player.play().catch(() => { });
       }
     }
 
@@ -185,9 +202,21 @@ document.addEventListener("DOMContentLoaded", () => {
       change_groovytrack(1);
     };
 
-    groovybox_elements.groovybox_player.onended = () => change_groovytrack(1);
-    groovybox_elements.groovybox_player.onplay = () => update_play_pause_icon(true);
-    groovybox_elements.groovybox_player.onpause = () => update_play_pause_icon(false);
+    groovybox_elements.groovybox_player.onended = () => {
+      change_groovytrack(1);
+      rotate_image_cancel(animation_frame_id);
+    };
+
+    groovybox_elements.groovybox_player.onplay = () => {
+      update_play_pause_icon(true);
+      rotate_image_cancel(animation_frame_id);
+      rotate_image();
+    };
+
+    groovybox_elements.groovybox_player.onpause = () => {
+      update_play_pause_icon(false);
+      rotate_image_cancel(animation_frame_id);
+    };
 
     groovybox_elements.groovybox_player.onloadedmetadata = () => {
       groovybox_elements.groovytrack_duration_time.textContent = seconds_to_minutes(groovybox_elements.groovybox_player.duration);
@@ -203,6 +232,11 @@ document.addEventListener("DOMContentLoaded", () => {
     groovybox_elements.groovytrack_progress_bar.oninput = () => {
       groovybox_elements.groovybox_player.currentTime =
         (groovybox_elements.groovytrack_progress_bar.value / 100) * groovybox_elements.groovybox_player.duration;
+
+      // update rotation when scrubbing
+      const current_time = groovybox_elements.groovybox_player.currentTime;
+      const rotation_deg = current_time * 45;
+      groovybox_elements.groovytrack_image.style.transform = `rotate(${rotation_deg}deg)`;
     };
 
     function show_groovybox_info() {
