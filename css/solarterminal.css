@@ -9,6 +9,11 @@
     width: 800px;
 }
 
+#solarterminal_button_enter {
+  cursor: pointer;
+  font-family: "Ubuntu_Mono_Regular";
+}
+
 .solarterminal_header {
   background-color: #4E4C45;
   border-top-left-radius: 20px;
