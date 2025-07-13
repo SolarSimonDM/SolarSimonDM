@@ -14,13 +14,6 @@ window.solartypewriter = function(element, text, charIndex = 0, delay = 10, call
   }
 };
 
-function enter_SOLAR() {
-  document.getElementById("ENTER_SOLAR").style.display = "none";
-  const terminal = document.getElementById("solarterminal");
-  terminal.style.display = "block";
-  solarterminal_start();
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   const lines = document.querySelectorAll(".solarterminal_content > div");
   const solarterminal_content = document.querySelector(".solarterminal_content");
