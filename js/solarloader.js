@@ -26,7 +26,12 @@ if (skip_solarloader) {
 
 
 
-// ENTER SOLAR button and terminal button
+// buttons
+
+function skip_solarloader_button() {
+    localStorage.setItem(solarloader_key, now.toString());
+}
+
 function enter_SOLAR() {
   localStorage.setItem(solarloader_key, now.toString());  
   document.getElementById("ENTER_SOLAR").style.display = "none";
