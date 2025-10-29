@@ -8,7 +8,8 @@ figcaption, .solartitle, .solartext {
     padding: 10px;    
 }
 
-.solartextstyle_medieval {
+.solartextstyle_medieval,
+.solartextstyle_medieval .solartitle {
     font-family: "MedievalSharp_Regular";
 }
 
