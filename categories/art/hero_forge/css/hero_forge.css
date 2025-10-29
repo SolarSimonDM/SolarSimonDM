@@ -1,3 +1,13 @@
+.solarwrapper {
+    background: transparent;
+}
+
+figcaption, .solartitle, .solartext {
+    background-color: #171F2B;
+    border-radius: 10px;
+    padding: 10px;    
+}
+
 .solartextstyle_medieval {
     font-family: "MedievalSharp_Regular";
 }
@@ -8,4 +18,8 @@
 
 .solartextstyle_medieval figcaption {
     font-size: 18px;
+}
+
+video {
+  width: 100%;
 }

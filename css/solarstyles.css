@@ -40,10 +40,13 @@ img.no_border_radius,
 
 .solardate {
     background-color: green;
+    border-radius: 10px;
     color: yellow;
     display: inline-block;
-    font-size: 12px;
-    left: 100%;    
+    font-size: 15px;
+    left: 100%;
+    margin-bottom: 5px;
+    padding: 10px;    
     position: relative;
     transform: translateX(-100%);     
 }
