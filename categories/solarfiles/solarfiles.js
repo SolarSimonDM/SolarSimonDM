@@ -1,9 +1,12 @@
 // ======== CONFIG ========
-const user = "solarsimondm";
-const repo = "SolarSimonDM";
 const params = new URLSearchParams(window.location.search);
 const folderParam = params.get("solarfolder");
 const fileParam = params.get("solarfile");
+
+const indexFile = "solarfiles_index_build.json";
+let solarfilesIndex = {};
+
+let currentAudio = null; 
 
 // ======== ELEMENTS ========
 const breadcrumb = document.getElementById("breadcrumb");
@@ -12,7 +15,7 @@ const closeBtn = document.getElementById("closeBtn");
 const nextBtn = document.getElementById("nextBtn");
 const prevBtn = document.getElementById("prevBtn");
 const popup = document.getElementById("popup");
-const popupImg = document.getElementById("popupImg");
+const popupMedia = document.getElementById("popupMedia");
 const popupFilename = document.getElementById("popupFilename");
 const searchInput = document.getElementById("fileSearch");
 const sizeButtons = document.querySelectorAll("#sizeSelector button");
@@ -20,202 +23,278 @@ const message = document.getElementById("message");
 
 // ======== STATE ========
 let currentIndex = 0;
-let imageList = [];
+let mediaList = [];
+let filteredMediaList = [];
 let currentSize = localStorage.getItem('thumbSize') || 'medium';
-
-const folders = [
-    { name: "hero_forge", label: "hero_forge" },
-    { name: "the_scarr", label: "the_scarr" }
-];
+let lastScroll = parseInt(localStorage.getItem('scrollPos')) || 0;
 
 // ======== HELPER FUNCTIONS ========
-
-// Highlight active size button
 function updateSizeButtons() {
     sizeButtons.forEach(btn => btn.classList.toggle("active", btn.dataset.size === currentSize));
 }
 
-// Apply size class to all thumbnails and items
 function applyThumbnailSize() {
-    document.querySelectorAll(".thumb").forEach(img => {
-    img.classList.remove("thumb-small", "thumb-medium", "thumb-large");
-    img.classList.add(`thumb-${currentSize}`);
+    document.querySelectorAll(".item").forEach(el => {
+        el.classList.remove("thumb-small", "thumb-medium", "thumb-large");
+        el.classList.add(`thumb-${currentSize}`);
     });
-    document.querySelectorAll(".item").forEach(item => {
-    item.classList.remove("thumb-small", "thumb-medium", "thumb-large");
-    item.classList.add(`thumb-${currentSize}`);
-    });
-}
-
-// Apply folder icon size and label spacing
-function applyFolderSize(div) {
-    const folderIcon = div.querySelector(".folder");
-    const folderLabel = div.querySelector(".folder-label");
-    if (!folderIcon || !folderLabel) return;
-
-    if (currentSize === "small") {
-    folderIcon.style.fontSize = "50px";
-    folderLabel.style.marginTop = "5px";
-    folderLabel.style.fontSize = "12px";
-    } else if (currentSize === "medium") {
-    folderIcon.style.fontSize = "80px";
-    folderLabel.style.marginTop = "8px";
-    folderLabel.style.fontSize = "14px";
-    } else {
-    folderIcon.style.fontSize = "120px";
-    folderLabel.style.marginTop = "10px";
-    folderLabel.style.fontSize = "16px";
-    }
-}
-
-// Apply folder size to all top-level folders
-function applyAllFolderSizes() {
-    document.querySelectorAll(".item").forEach(div => {
-    if (div.querySelector(".folder")) applyFolderSize(div);
+    document.querySelectorAll(".thumb").forEach(el => {
+        el.classList.remove("thumb-small", "thumb-medium", "thumb-large");
+        el.classList.add(`thumb-${currentSize}`);
     });
 }
 
-// Display top-level folders
-function showFolders() {
-    breadcrumb.innerHTML = `<a href="solarfiles.html">S:\</a>`;
-    folders.forEach(f => {
-    const div = document.createElement("div");
-    div.className = "item folder-item";
-    div.innerHTML = `<div class="folder">📁</div><div class="folder-label">${f.label}</div>`;
-    applyFolderSize(div);
-    div.addEventListener("click", () => window.location.search = `?solarfolder=${f.name}`);
-    container.appendChild(div);
+// ======== DISPLAY FUNCTIONS ========
+function showBreadcrumb(pathArray) {
+    breadcrumb.innerHTML = `<a href="solarfiles.html">S:\\</a>`;
+    pathArray.forEach((part, i) => {
+        breadcrumb.innerHTML += `\\<a href="?solarfolder=${pathArray.slice(0, i+1).join('/')}">${part}</a>`;
     });
 }
 
-// Display files inside a folder
-function showFiles(folder) {
-    return new Promise((resolve, reject) => {
-    const folderObj = folders.find(f => f.name === folder);
-    const folderLabel = folderObj ? folderObj.label : folder;
-    breadcrumb.innerHTML = `<a href="solarfiles.html">S:\</a>\\<a href="?solarfolder=${folder}">${folderLabel}</a>\\`;
+function showFoldersAndFiles(folderData, pathArray = []) {
+    container.innerHTML = "";
+    mediaList = [];
 
-    const path = folder === "hero_forge" ? "media/images/hero_forge/JPG" :
-        folder === "the_scarr" ? "media/images/the_scarr" :
-        `media/images/${folder}`;
+    const folders = Object.keys(folderData).filter(k => k !== "files");
+    const files = folderData.files || [];
 
-    fetch(`https://api.github.com/repos/${user}/${repo}/contents/${encodeURIComponent(path)}`)
-        .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); })
-        .then(data => {
-        if (!Array.isArray(data) || data.length === 0) { message.textContent = `No files in ${path}`; resolve(); return; }
+    folders.forEach(key => {
+        const div = document.createElement("div");
+        div.className = "item folder-item";
+        div.innerHTML = `<div class="folder">📁</div><div class="folder-label">${key}</div>`;
+        div.addEventListener("click", () => {
+            const newPath = [...pathArray, key];
+            history.pushState(null, '', `?solarfolder=${newPath.join('/')}`);
+            showFoldersAndFiles(folderData[key], newPath);
+            showBreadcrumb(newPath);
+        });
+        container.appendChild(div);
+    });
 
-        imageList = [];
-        container.innerHTML = "";
+    files.forEach(url => {
+        const filename = url.split('/').pop();
+        const ext = filename.split('.').pop().toLowerCase();
+        const div = document.createElement("div");
+        div.className = "item image-item";
 
-        data.forEach(item => {
-            const div = document.createElement("div");
-            div.className = "item";
-
-            const isImage = /\.(png|jpe?g|gif|webp)$/i.test(item.name);
-            if (isImage) {
-            div.classList.add("image-item");
-            const img = document.createElement("img");
-            img.className = `thumb thumb-${currentSize}`;
-            img.alt = item.name;
-            img.setAttribute("data-src", item.download_url);
-            div.appendChild(img);
-            div.addEventListener("click", () => {
-                currentIndex = imageList.findIndex(u => u === item.download_url);
-                showPopupImage(currentIndex, item.name);
-            });
-            imageList.push(item.download_url);
-            } else {
-            div.innerHTML = `<div class="file-icon">📄</div>`;
-            }
-
-            const caption = document.createElement("div");
-            caption.className = "caption";
-            caption.textContent = item.name;
-            div.appendChild(caption);
-
-            container.appendChild(div);
+        div.addEventListener("click", () => {
+            const idx = (filteredMediaList.length ? filteredMediaList : mediaList)
+                        .findIndex(m => m.filename === filename);
+            showPopupMedia(idx);
         });
 
-        // Lazy load images
-        const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
+        let mediaEl;
+        if (/(png|jpe?g|gif|webp|bmp|tiff|svg)/i.test(ext)) {
+            mediaEl = document.createElement("img");
+            mediaEl.setAttribute("data-src", url);
+        } else if (/(mp3|wav|ogg|flac|m4a)/i.test(ext)) {
+            mediaEl = document.createElement("img");
+            mediaEl.src = "../../media/images/Tom_Grooves_CD.png";
+            mediaEl.className = `thumb thumb-${currentSize}`;
+        } else if (/(mp4|mov|avi|mkv|webm)/i.test(ext)) {
+            mediaEl = document.createElement("video");
+            mediaEl.setAttribute("data-src", url);
+        }
+        if (!mediaEl) return;
+
+        mediaEl.className = `thumb thumb-${currentSize}`;
+        div.appendChild(mediaEl);
+
+        const caption = document.createElement("div");
+        caption.className = "caption";
+        caption.textContent = filename;
+        div.appendChild(caption);
+        container.appendChild(div);
+
+        mediaList.push({ url, type: ext, filename });
+    });
+
+    // Lazy-load all media
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                obs.unobserve(img);
+                const el = entry.target;
+                const src = el.dataset.src;
+                if (src) {
+                    el.src = src;
+                    obs.unobserve(el);
+                }
             }
-            });
         });
-        document.querySelectorAll("img[data-src]").forEach(img => observer.observe(img));
-
-        applyThumbnailSize();
-        resolve();
-        })
-        .catch(err => { message.textContent = `Error loading ${path}: ${err.message}`; reject(err); });
     });
+    document.querySelectorAll("img[data-src], audio[data-src], video[data-src]").forEach(el => observer.observe(el));
+
+    applyThumbnailSize();
+
+    // Restore scroll
+    window.scrollTo(0, lastScroll);
 }
 
-// Show image popup
-function showPopupImage(index, filename = null) {
-    if (index < 0 || index >= imageList.length) return;
+// ======== POPUP ========
+function showPopupMedia(index, filename = null) {
+    const list = filteredMediaList.length ? filteredMediaList : mediaList;
+    if (!list.length) return;
+
+    if (index < 0) index = list.length - 1;
+    if (index >= list.length) index = 0;
     currentIndex = index;
-    popupImg.src = imageList[currentIndex];
-    popupFilename.textContent = filename || imageList[currentIndex].split('/').pop();
+
+    const item = list[currentIndex];
+
+    // Update URL with ?solarfile=filename while preserving folder
+    const params = new URLSearchParams(window.location.search);
+    params.set("solarfile", item.filename);
+    history.replaceState(null, "", `?${params.toString()}`);
+
+    // Stop any previous media
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        currentAudio = null;
+    }
+
+    popupMedia.innerHTML = "";
+
+    if (/(png|jpe?g|gif|webp|bmp|tiff|svg)/i.test(item.type)) {
+        const img = document.createElement("img");
+        img.src = item.url;
+        popupMedia.appendChild(img);
+    } else if (/(mp3|wav|ogg|flac|m4a)/i.test(item.type)) {
+        const audio = document.createElement("audio");
+        audio.controls = true;
+        audio.autoplay = true;
+        audio.src = item.url;
+        audio.style.marginTop = "10px";
+        popupMedia.appendChild(audio);
+        currentAudio = audio;
+    } else if (/(mp4|mov|avi|mkv|webm)/i.test(item.type)) {
+        const video = document.createElement("video");
+        video.controls = true;
+        video.autoplay = true;
+        video.src = item.url;
+        popupMedia.appendChild(video);
+        currentAudio = video; // track video for stopping on close
+    }
+
+    popupFilename.textContent = filename || item.filename;
     popup.classList.add("active");
 }
 
 // ======== EVENT LISTENERS ========
-
-// Size button click
 sizeButtons.forEach(btn => {
     btn.addEventListener("click", () => {
-    currentSize = btn.dataset.size;
-    localStorage.setItem('thumbSize', currentSize);
-    updateSizeButtons();
-    applyThumbnailSize();
-    applyAllFolderSizes();
+        currentSize = btn.dataset.size;
+        localStorage.setItem('thumbSize', currentSize);
+        updateSizeButtons();
+        applyThumbnailSize();
     });
 });
 
-// Popup navigation buttons
-prevBtn.addEventListener("click", () => showPopupImage(currentIndex - 1));
-nextBtn.addEventListener("click", () => showPopupImage(currentIndex + 1));
+prevBtn.addEventListener("click", () => showPopupMedia(currentIndex - 1));
+nextBtn.addEventListener("click", () => showPopupMedia(currentIndex + 1));
 
-// Popup keyboard controls
 document.addEventListener("keydown", e => {
     if (!popup.classList.contains("active")) return;
-    if (e.key === "ArrowLeft") showPopupImage(currentIndex - 1);
-    if (e.key === "ArrowRight") showPopupImage(currentIndex + 1);
+    if (e.key === "ArrowLeft") showPopupMedia(currentIndex - 1);
+    if (e.key === "ArrowRight") showPopupMedia(currentIndex + 1);
     if (e.key === "Escape") popup.classList.remove("active");
 });
 
-// Close popup
-closeBtn.addEventListener("click", () => popup.classList.remove("active"));
-popup.addEventListener("click", e => { if (e.target === popup) popup.classList.remove("active"); });
+function closePopup() {
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        currentAudio = null;
+    }
+    popup.classList.remove("active");
+}
 
-// File search
+closeBtn.addEventListener("click", closePopup);
+popup.addEventListener("click", e => { 
+    if (e.target === popup) closePopup(); 
+});
+
+// ======== SEARCH ========
 searchInput.addEventListener("input", () => {
     const term = searchInput.value.toLowerCase();
+    filteredMediaList = [];
+
     document.querySelectorAll(".item").forEach(div => {
-    const caption = div.querySelector(".caption");
-    const isFolder = !!div.querySelector(".folder");
-    if (term === "") div.style.display = "";
-    else if (caption && caption.textContent.toLowerCase().includes(term)) div.style.display = "";
-    else if (isFolder && div.querySelector(".folder-label").textContent.toLowerCase().includes(term)) div.style.display = "";
-    else div.style.display = "none";
+        const caption = div.querySelector(".caption");
+        const folderLabel = div.querySelector(".folder-label");
+        let isVisible = false;
+
+        if (term === "") isVisible = true;
+        else if (caption && caption.textContent.toLowerCase().includes(term)) isVisible = true;
+        else if (folderLabel && folderLabel.textContent.toLowerCase().includes(term)) isVisible = true;
+
+        div.style.display = isVisible ? "" : "none";
+
+        if (isVisible && caption) {
+            const item = mediaList.find(m => m.filename === caption.textContent);
+            if (item) filteredMediaList.push(item);
+        }
     });
+
+    currentIndex = 0;
+});
+
+// ======== SCROLL SAVE ========
+window.addEventListener("scroll", () => {
+    localStorage.setItem('scrollPos', window.scrollY);
 });
 
 // ======== INITIALIZE ========
-updateSizeButtons();
-if (!folderParam) {
-    showFolders();
-    applyAllFolderSizes();
-} else {
-    showFiles(folderParam).then(() => {
-    if (fileParam) {
-        const idx = imageList.findIndex(u => u.endsWith(fileParam));
-        if (idx >= 0) showPopupImage(idx);
-    }
+fetch(indexFile)
+    .then(res => res.json())
+    .then(data => {
+        solarfilesIndex = data;
+        updateSizeButtons();
+
+        let folderData = solarfilesIndex;
+        const pathArray = folderParam ? folderParam.split('/') : [];
+
+        pathArray.forEach(p => folderData = folderData[p] || folderData);
+
+        showFoldersAndFiles(folderData, pathArray);
+        showBreadcrumb(pathArray);
+
+        // If fileParam exists, open popup
+        if (fileParam) {
+            const list = mediaList;
+            const idx = list.findIndex(m => m.filename === fileParam);
+            if (idx >= 0) showPopupMedia(idx, fileParam);
+        }
+    })
+    .catch(err => {
+        message.textContent = `Error loading ${indexFile}: ${err.message}`;
     });
-}
+
+// ======== SAVE HISTORY CORRECTLY ========
+window.addEventListener("popstate", () => {
+    const params = new URLSearchParams(window.location.search);
+    const folderParam = params.get("solarfolder");
+    const fileParam = params.get("solarfile");
+
+    if (!folderParam) {
+        showFoldersAndFiles(solarfilesIndex);
+        showBreadcrumb([]);
+        filteredMediaList = [];
+        currentIndex = 0;
+    } else {
+        const pathArray = folderParam.split('/');
+        let folderData = solarfilesIndex;
+        pathArray.forEach(p => { folderData = folderData[p]; });
+        showFoldersAndFiles(folderData, pathArray);
+        showBreadcrumb(pathArray);
+
+        if (fileParam) {
+            const list = filteredMediaList.length ? filteredMediaList : mediaList;
+            const idx = list.findIndex(m => m.filename === fileParam);
+            if (idx >= 0) showPopupMedia(idx, fileParam);
+        } else {
+            popup.classList.remove("active");
+        }
+    }
+});

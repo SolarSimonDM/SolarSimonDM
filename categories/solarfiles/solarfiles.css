@@ -1,6 +1,6 @@
 body {
     background-color: #1E1E1E;
-    background: linear-gradient(90deg,rgba(35, 103, 207, 1) 0%, rgba(117, 212, 244, 1) 50%, rgba(7, 20, 68, 1) 100%);    
+    background: linear-gradient(90deg, rgba(35, 103, 207, 1) 0%, rgba(117, 212, 244, 1) 50%, rgba(7, 20, 68, 1) 100%);
     color: #E0E0E0;
     font-family: "Roboto";
     margin: 0;
@@ -11,6 +11,9 @@ body {
     color: #ccc;
     font-size: 13px;
     word-break: break-word;
+    text-align: center;
+    width: 100%;
+    flex-shrink: 0;
 }
 
 .close-btn {
@@ -19,11 +22,11 @@ body {
     color: #fff;
     cursor: pointer;
     font-size: 28px;
-    position: absolute;
     transition: color 0.2s;
     user-select: none;
-    right: 30px;
-    top: 20px;
+    margin-top: 10px;
+    align-self: center;
+    position: static;
 }
 
 .close-btn:hover {
@@ -72,9 +75,63 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 270px;
     padding: 5px;
     text-align: center;
+    box-sizing: border-box;
+}
+
+/* Size variations for items */
+.item.thumb-small {
+    width: 150px;
+    height: 220px;
+}
+
+.item.thumb-medium {
+    width: 200px;
+    height: 270px;
+}
+
+.item.thumb-large {
+    width: 300px;
+    height: 380px;
+}
+
+/* Thumbnail sizes */
+.thumb {
+    border-radius: 3px;
+    margin-bottom: 5px;
+    object-fit: contain;
+    width: auto;
+    max-height: calc(100% - 30px);
+}
+
+.thumb-small {
+    width: 150px;
+    height: 150px;
+}
+
+.thumb-medium {
+    width: 200px;
+    height: 200px;
+}
+
+.thumb-large {
+    width: 300px;
+    height: 300px;
+}
+
+@media (max-width: 768px) {
+    .item {
+        width: 100% !important;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .thumb {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
 }
 
 .item.folder-item {
@@ -83,50 +140,10 @@ h1 {
     padding: 20px 0;
 }
 
-/* Ensure thumbnail sits above caption */
 .item .thumb {
     margin-bottom: 5px;
     max-height: calc(100% - 30px);
     object-fit: contain;
-}
-
-.item.thumb-large {
-    height: 380px;
-    width: 300px;
-}
-
-.item.thumb-medium {
-    height: 270px;
-    width: 200px;
-}
-
-.item.thumb-small {
-    height: 220px;
-    width: 150px;
-}
-
-.thumb {
-    border-radius: 3px;
-    margin-bottom: 5px;
-    max-width: 100%;
-    object-fit: contain;
-    width: auto;
-    max-height: calc(100% - 30px);
-}
-
-.thumb-large {
-    height: 380px;
-    width: 300px;
-}
-
-.thumb-medium {
-    height: 270px;
-    width: 200px;
-}
-
-.thumb-small {
-    height: 220px;
-    width: 150px;
 }
 
 nav {
@@ -164,7 +181,7 @@ nav input[type="text"] {
     padding: 5px 10px;
 }
 
-.next-btn {
+.next-btn, .prev-btn {
     background: none;
     border: none;
     color: #fff;
@@ -173,30 +190,14 @@ nav input[type="text"] {
     position: absolute;
     transition: color 0.2s;
     user-select: none;
-    right: 20px;
     top: 50%;
     transform: translateY(-50%);
 }
 
-.next-btn:hover {
-    color: #ff5555;
-}
+.next-btn { right: 20px; }
+.prev-btn { left: 20px; }
 
-.prev-btn {
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 28px;
-    position: absolute;
-    transition: color 0.2s;
-    user-select: none;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.prev-btn:hover {
+.next-btn:hover, .prev-btn:hover {
     color: #ff5555;
 }
 
@@ -221,6 +222,11 @@ nav input[type="text"] {
     flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
+}
+
+.solarfiles_heading {
+    color: #DDD;
+    text-decoration: none;
 }
 
 .popup {
@@ -249,9 +255,15 @@ nav input[type="text"] {
     font-size: 16px;
 }
 
-.popup img {
+.popup video {
     border-radius: 6px;
     margin-bottom: 10px;
     max-height: 80%;
     max-width: 90%;
+}
+
+.popup video {
+    border-radius: 6px;
+    margin-bottom: 10px;
+    max-width: 100%;
 }
