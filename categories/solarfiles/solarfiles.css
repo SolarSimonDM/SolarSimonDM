@@ -190,8 +190,6 @@ nav input[type="text"] {
     position: absolute;
     transition: color 0.2s;
     user-select: none;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 .next-btn { right: 20px; }
@@ -199,13 +197,6 @@ nav input[type="text"] {
 
 .next-btn:hover, .prev-btn:hover {
     color: #ff5555;
-}
-
-@media (max-width: 768px) {
-    .next-btn, .prev-btn {
-        bottom: 10%;    
-        top: auto;
-    }
 }
 
 #sizeSelector button {
@@ -270,7 +261,8 @@ nav input[type="text"] {
 }
 
 .popup video {
-    max-width: 100%;
+  width: 90vw;
+  height: calc(100vh - 200px);
 }
 
 .popup audio {
