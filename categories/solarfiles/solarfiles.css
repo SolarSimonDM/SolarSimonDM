@@ -263,14 +263,16 @@ nav input[type="text"] {
 }
 
 .popup img {
-    border-radius: 6px;
-    margin-bottom: 10px;
-    max-height: 100%;
-    max-width: 100%;
+    width: 100vw;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
 }
 
 .popup video {
-    border-radius: 6px;
-    margin-bottom: 10px;
     max-width: 100%;
+}
+
+.popup audio {
+    width: 90vw;
 }
