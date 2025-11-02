@@ -51,7 +51,7 @@ body {
 .folder-label {
     color: #ccc;
     font-size: 14px;
-    margin-top: -10px;
+    margin-top: 5px;
 }
 
 h1 {
@@ -201,6 +201,13 @@ nav input[type="text"] {
     color: #ff5555;
 }
 
+@media (max-width: 768px) {
+    .next-btn, .prev-btn {
+        bottom: 10%;    
+        top: auto;
+    }
+}
+
 #sizeSelector button {
     background-color: #505050;
     border: none;
@@ -255,11 +262,11 @@ nav input[type="text"] {
     font-size: 16px;
 }
 
-.popup video {
+.popup img {
     border-radius: 6px;
     margin-bottom: 10px;
-    max-height: 80%;
-    max-width: 90%;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .popup video {
