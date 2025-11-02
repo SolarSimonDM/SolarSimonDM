@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SolarSimonDM's website files.">
+  <link rel="icon" type="image/png" href="../../favicons/favicon_DiSH.png">
+  <title>SolarFiles</title>
+  <link rel="stylesheet" href="../../css/fonts.css">
+  <link rel="stylesheet" href="solarfiles.css">
+</head>
+
+<body>
+  <h1>SolarFiles <a class="exit_solarfiles" href="../../index.html?ss=1">[EXIT]</a></h1>
+
+  <nav>
+    <div id="breadcrumb"></div>
+    <input type="text" id="fileSearch" placeholder="Search stuff...">
+  </nav>
+
+  <div id="sizeSelector">
+    <button data-size="small">Small</button>
+    <button data-size="medium" class="active">Medium</button>
+    <button data-size="large">Large</button>
+  </div>
+
+  <div id="message"></div>
+  <div class="solarfiles_container" id="solarfiles_container"></div>
+
+  <div id="popup" class="popup">
+    <button class="close-btn" id="closeBtn">✕</button>
+    <button class="prev-btn" id="prevBtn">◀</button>
+    <button class="next-btn" id="nextBtn">▶</button>
+    <img id="popupImg" src="" alt="">
+    <div class="filename" id="popupFilename"></div>
+  </div>
+
+  <script src="solarfiles.js"></script>
+
+</body>
+
+</html>

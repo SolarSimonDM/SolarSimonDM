@@ -164,6 +164,28 @@ h1.solartitle.homepage {
   width: 300px;
 }
 
+.solarsidebar .solarsidebaritem {
+  margin-bottom: 20px;
+}
+
+#SolarFiles {
+  background: #101010;
+  padding: 10px;
+  text-align: center;
+}
+
+#SolarFiles h2 {
+  color: #63DE00;
+  font-family: "Ubuntu_Mono_Regular";
+  font-size: 23px;  
+  margin: 0;
+}
+
+#SolarFiles p {
+  color: #63DE00;
+  font-family: "Ubuntu_Mono_Regular";  
+}
+
 #The_Credits {
   border-top: 1px solid white;
   margin-top: 50px;
@@ -174,6 +196,10 @@ h1.solartitle.homepage {
 
 #The_Credits a {
   color: white;
+}
+
+#The_Internet_Presence {
+  background-color: #000000;
 }
 
 #The_Internet_Presence_wrapper {
