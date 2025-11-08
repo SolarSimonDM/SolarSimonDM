@@ -86,6 +86,16 @@
           "../../media/images/hero_forge/JPG/Cerberus_2.jpg",
           "../../media/images/hero_forge/JPG/Charon_1.jpg",
           "../../media/images/hero_forge/JPG/Charon_2.jpg",
+          "../../media/images/hero_forge/JPG/Custom_Chess_Set_The_Bishops.jpg",
+          "../../media/images/hero_forge/JPG/Custom_Chess_Set_The_Kings.jpg",
+          "../../media/images/hero_forge/JPG/Custom_Chess_Set_The_Knights.jpg",
+          "../../media/images/hero_forge/JPG/Custom_Chess_Set_The_Pawns.jpg",
+          "../../media/images/hero_forge/JPG/Custom_Chess_Set_The_Queens.jpg",
+          "../../media/images/hero_forge/JPG/Custom_Chess_Set_The_Rooks.jpg",
+          "../../media/images/hero_forge/JPG/Cybergirl_1.jpg",
+          "../../media/images/hero_forge/JPG/Cybergirl_2.jpg",
+          "../../media/images/hero_forge/JPG/Cybergirl_3.jpg",
+          "../../media/images/hero_forge/JPG/Cybergirl_4.jpg",
           "../../media/images/hero_forge/JPG/Dentron_1.jpg",
           "../../media/images/hero_forge/JPG/Dentron_2.jpg",
           "../../media/images/hero_forge/JPG/Dentron_3.jpg",
@@ -201,6 +211,24 @@
           "../../media/images/hero_forge/JPG/Zahir_The_Eye_Of_Golde_1.jpg",
           "../../media/images/hero_forge/JPG/Zahir_The_Eye_Of_Golde_2.jpg"
         ]
+      },
+      "PNG": {
+        "custom_chess_set_pieces": {
+          "files": [
+            "../../media/images/hero_forge/PNG/custom_chess_set_pieces/BB.png",
+            "../../media/images/hero_forge/PNG/custom_chess_set_pieces/BK.png",
+            "../../media/images/hero_forge/PNG/custom_chess_set_pieces/BN.png",
+            "../../media/images/hero_forge/PNG/custom_chess_set_pieces/BP.png",
+            "../../media/images/hero_forge/PNG/custom_chess_set_pieces/BQ.png",
+            "../../media/images/hero_forge/PNG/custom_chess_set_pieces/BR.png",
+            "../../media/images/hero_forge/PNG/custom_chess_set_pieces/WB.png",
+            "../../media/images/hero_forge/PNG/custom_chess_set_pieces/WK.png",
+            "../../media/images/hero_forge/PNG/custom_chess_set_pieces/WN.png",
+            "../../media/images/hero_forge/PNG/custom_chess_set_pieces/WP.png",
+            "../../media/images/hero_forge/PNG/custom_chess_set_pieces/WQ.png",
+            "../../media/images/hero_forge/PNG/custom_chess_set_pieces/WR.png"
+          ]
+        }
       }
     },
     "the_scarr": {
@@ -302,16 +330,25 @@
         "../../media/images/the_scarr/Veronica_sketch_2.png",
         "../../media/images/the_scarr/WELCOME_TO_THE_SCARR.png"
       ]
-    }
+    },
+    "files": [
+      "../../media/images/Tom_Grooves_CD.png"
+    ]
   },
   "videos": {
     "hero_forge": {
       "files": [
+        "../../media/videos/hero_forge/Cybergirl_5.mp4",
         "../../media/videos/hero_forge/Spaceman_In_Space_4.mp4",
         "../../media/videos/hero_forge/Theomachy_The_Fall_Of_Poseidon_5.mp4",
         "../../media/videos/hero_forge/The_Battle_Against_Nathagorm_4.mp4",
         "../../media/videos/hero_forge/Thor_vs_The_World_Serpent_3.mp4"
-      ]
+      ],
+      "other": {
+        "files": [
+          "../../media/videos/hero_forge/other/custom_chess_set_in_action.mp4"
+        ]
+      }
     },
     "the_scarr": {
       "files": [

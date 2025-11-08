@@ -57,6 +57,14 @@ document.addEventListener("DOMContentLoaded", function () {
         history.replaceState(null, "", `#${closest_solarsection.id}`);
       }
       document.body.style.background = closest_solarsection.bg;
+      
+      localStorage.setItem("lastSolarSection", closest_solarsection.id);
     }
   });
+
+  const lastSectionId = localStorage.getItem("lastSolarSection");
+  if (lastSectionId) {
+    const el = document.getElementById(lastSectionId);
+    if (el) el.scrollIntoView({ block: "start" });
+  }
 });

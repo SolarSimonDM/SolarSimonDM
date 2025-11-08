@@ -226,11 +226,21 @@ img.no_border_radius,
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.solartable.solarcolumns_6 {
+    grid-template-columns: repeat(6, 1fr);
+}
+
 @media only screen and (max-width: 768px) {
     .solartable.solarcolumns_1,
     .solartable.solarcolumns_2,
     .solartable.solarcolumns_3 {
        grid-template-columns: 1fr; 
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .solartable.solarcolumns_3_mobile {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
