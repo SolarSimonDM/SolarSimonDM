@@ -73,6 +73,9 @@
     "hero_forge": {
       "JPG": {
         "files": [
+          "../../media/images/hero_forge/JPG/Ailura_Herald_Of_Diodoris_1.jpg",
+          "../../media/images/hero_forge/JPG/Ailura_Herald_Of_Diodoris_2.jpg",
+          "../../media/images/hero_forge/JPG/Ailura_Herald_Of_Diodoris_3.jpg",
           "../../media/images/hero_forge/JPG/Alicia_Atmos_Of_Chronotower_1.jpg",
           "../../media/images/hero_forge/JPG/Antoine_Delacroix_1.jpg",
           "../../media/images/hero_forge/JPG/Antoine_Delacroix_2.jpg",
@@ -202,6 +205,12 @@
           "../../media/images/hero_forge/JPG/The_Gastronomer_1.jpg",
           "../../media/images/hero_forge/JPG/The_Gastronomer_2.jpg",
           "../../media/images/hero_forge/JPG/The_Gastronomer_3.jpg",
+          "../../media/images/hero_forge/JPG/The_Omniverse_Gauntlet_1.jpg",
+          "../../media/images/hero_forge/JPG/The_Omniverse_Gauntlet_2.jpg",
+          "../../media/images/hero_forge/JPG/The_Omniverse_Gauntlet_3.jpg",
+          "../../media/images/hero_forge/JPG/The_Omniverse_Gauntlet_4.jpg",
+          "../../media/images/hero_forge/JPG/The_Omniverse_Gauntlet_5.jpg",
+          "../../media/images/hero_forge/JPG/The_Omniverse_Gauntlet_6.jpg",
           "../../media/images/hero_forge/JPG/Thor_vs_The_World_Serpent_1.jpg",
           "../../media/images/hero_forge/JPG/Thor_vs_The_World_Serpent_2.jpg",
           "../../media/images/hero_forge/JPG/Vrisko_The_Realm_Drifter_1.jpg",
@@ -338,10 +347,12 @@
   "videos": {
     "hero_forge": {
       "files": [
+        "../../media/videos/hero_forge/Ailura_Herald_Of_Diodoris_4.mp4",
         "../../media/videos/hero_forge/Cybergirl_5.mp4",
         "../../media/videos/hero_forge/Spaceman_In_Space_4.mp4",
         "../../media/videos/hero_forge/Theomachy_The_Fall_Of_Poseidon_5.mp4",
         "../../media/videos/hero_forge/The_Battle_Against_Nathagorm_4.mp4",
+        "../../media/videos/hero_forge/The_Omniverse_Gauntlet_7.mp4",
         "../../media/videos/hero_forge/Thor_vs_The_World_Serpent_3.mp4"
       ],
       "other": {
